@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+          document.addEventListener('DOMContentLoaded', function(){
+
+               let elincorect = document.querySelectorAll(".choosebuttonincorect");
+               for ( let n=0; n< elincorect.length; n++){
+                         elincorect[n].addEventListener('click', function(){
+                            elincorect[n].style.backgroundColor='red';
+                            document.querySelector(".result").innerHTML="Incorrect";
+                            document.querySelector(".result").style.color='red';
+                          }, false);
+               }
+
+               let elcorect = document.querySelector(".choosebuttoncorect");
+
+                         elcorect.addEventListener('click', function(){
+                            elcorect.style.backgroundColor='green';
+                            document.querySelector(".result").style.color='green';
+                            document.querySelector(".result").innerHTML="Correct";
+                          }, false);
+               let checkbutton = document.querySelector(".checkbutton");
+
+               checkbutton.addEventListener('click', function(){
+                  let answer =document.querySelector(".inputresult").value;
+                  
+                  if ((answer == "24") || (answer =="twenty four")){
+                    document.querySelector(".result2").innerHTML="Correct";
+                    document.querySelector(".result2").style.color='green';
+                }
+                else{
+                    document.querySelector(".result2").style.color='red';
+                    document.querySelector(".result2").innerHTML="Incorrect";
+                }
+             }, false);
+
+
+          }
+          )
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What colors has the Ukrainian flag?</h3>
+                <!-- TODO: Add multiple choice question here -->
+                <button class="choosebuttonincorect">
+                   blue and green
+                </button>
+                <button class="choosebuttonincorect">
+                    yellow and red
+                </button>
+                <button class="choosebuttonincorect">
+                    blue white red
+                </button>
+                <button class="choosebuttonincorect">
+                    green and white
+                </button>
+                <button class="choosebuttoncorect">
+                    blue and yellow
+                </button>
+               <p class="result" ></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>How many region has Ukraine ?</h3>
+                 <input type="text" class ="inputresult">
+                   <button class = "checkbutton">
+                        Check answer
+                   </button>
+
+                </input>
+                <p class="result2" ></p>
+
+            </div>
+        </div>
+    </body>
+</html>
